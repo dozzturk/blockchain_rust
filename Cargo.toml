@@ -1,5 +1,6 @@
 [package]
 name = "blockchain_rust"
+version = "0.1.0"
 author = "Deniz Ozturk <dozturk@ncsu.edu>"
 edition = "2021"
 
@@ -13,3 +14,4 @@ name = "blockchain_rust"
 
 [dependencies]
 hex = "0.3.2"
+crypto_hash = "0.3.3"
