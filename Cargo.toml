@@ -1,5 +1,15 @@
 [package]
+name = "blockchain_rust"
+author = "Deniz Ozturk <dozturk@ncsu.edu>"
+edition = "2021"
 
 [lib]
+name = "blockchainlib"
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs" 
+name = "blockchain_rust"
 
 [dependencies]
+hex = "0.3.2"
