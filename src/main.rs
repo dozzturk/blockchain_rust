@@ -9,4 +9,10 @@ fn main() {
     // Print first Block object
     // uses :? to get the Debug one | & means reference to block
     println!("{:?}", &block);
+
+    // Generate hash for block
+    let hash = block.hash();
+
+    // Print hash - this is a vector so use Debug displayer to format it
+    println!("First Block hashed: {:?}", &hash);
 }

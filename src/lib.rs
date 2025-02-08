@@ -1,8 +1,8 @@
 type BlockHash = Vec<u8>;
 
 
-// Credit: https://github.com/GeekLaunch/blockchain-rust
-// Credit: https://stackoverflow.com/a/44378174/2773837
+// Source: https://github.com/GeekLaunch/blockchain-rust
+// Source: https://stackoverflow.com/a/44378174/2773837
 use std::time::{ SystemTime, UNIX_EPOCH };
 
 pub fn now () -> u128 {
@@ -55,3 +55,6 @@ pub fn u128_bytes (u: &u128) -> [u8; 16] {
 
 mod block;
 pub use crate::block::Block;
+
+mod hashable;
+pub use crate::hashable::Hashable;

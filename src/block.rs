@@ -7,7 +7,7 @@ pub struct Block {
     pub timestamp: u128,
     pub hash: BlockHash,
     pub prev_block_hash: BlockHash,
-    pub nonce: u64,
+    pub nonce: u64, // nonce is a random number that is used only once in a blockchain to create a block.
     pub payload: String, // Later this will be changed to transactions
 }
 
@@ -24,14 +24,28 @@ impl Debug for Block {
 
 impl Block {
     pub fn new (index: u32, timestamp: u128, prev_block_hash: BlockHash, nonce: u64,  payload: String) -> Self { // -> returns Block
-        Block { // Return Block
-            index,
-            timestamp,
-            hash: vec![0; 32],
-            prev_block_hash,
-            nonce,
-            payload,
+        return Block { 
+                index,
+                timestamp,
+                hash: vec![0; 32],
+                prev_block_hash,
+                nonce,
+                payload,
         }
+    }
+}
+
+// Hash function - takes &self as a parameter and returns vector of bytes (Vec<u8>)
+impl Hashable for Block {
+    fn bytes (&self) -> Vec<u8> {
+        let mut bytes = vec![]; // mutable
+        bytes.extend(&u32_bytes(&self.index)); // uses pre-defined functions
+        bytes.extend(&u128_bytes(&self.timestamp)); // uses pre-defined functions
+        bytes.extend(&self.prev_block_hash);
+        bytes.extend(&u64_bytes(&self.nonce)); // uses pre-defined functions
+        bytes.extend(self.payload.as_bytes()); //uses .as_bytes() because payload is String
+
+        return bytes
     }
 }
 
