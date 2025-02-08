@@ -31,4 +31,9 @@ Check difficulty function implemented:
 4. Add block to chain
 5. Submit to others (Networking is needed for this step but this is not implemented yet).
 
+QUESTION: NOT SURE??
+0x00fffffffffff means the most significant byte of our hash has to be zero in order for this block to be considered mind?
+
+#Nonce:
+- fulfills the difficulty?
 
